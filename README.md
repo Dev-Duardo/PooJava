@@ -569,63 +569,191 @@ A UML (Linguagem de Modelagem Unificada) é uma linguagem padrão usada para vis
 
 Existem vários tipos de diagramas na UML, cada um com sua própria finalidade e conjunto de elementos gráficos. Vamos abordar alguns dos diagramas mais comuns e úteis para modelar sistemas em Java.
 
-#### Diagramas de Classe
+#### Diagrama Estruturais
 
-Os diagramas de classe são usados para visualizar a estrutura estática de um sistema, mostrando as classes do sistema, seus atributos, métodos e os relacionamentos entre elas. Aqui está um exemplo de um diagrama de classe simples para uma aplicação de gerenciamento de biblioteca:
+##### Diagramas de Classe
 
-##### Diagrama de classe sem ligações e cardinalidade
+Os diagramas de classe são usados para visualizar a estrutura estática de um sistema, mostrando as `classes do sistema`, seus `atributos`, `métodos` e os `relacionamentos` entre elas. Aqui está um exemplo de um diagrama de classe simples:
 
-![Diagrama de Classe](https://www.devmedia.com.br/arquivos/Artigos/37224/diagrama_classes.png)
+**Diagrama de classe sem ligações e cardinalidade**
+
+<img src="https://www.devmedia.com.br/arquivos/Artigos/37224/diagrama_classes.png" alt="Diagrama de Classe" width="400" height="400">
+
 > Fonte: https://www.devmedia.com.br/orientacoes-basicas-na-elaboracao-de-um-diagrama-de-classes/37224
 
-Neste diagrama, as caixas representam as classes, e as linhas conectando as classes representam os relacionamentos entre elas. Por exemplo, a classe `Livro` está associada à classe `Autor` por um relacionamento de associação bidirecional. Os atributos e métodos de cada classe também são listados dentro das caixas correspondentes.
+Neste diagrama, as caixas representam as classes.
 
-##### Associação em UML
+##### Associação
 
-Em UML (Unified Modeling Language), uma associação é um relacionamento entre classes que descreve como os objetos dessas classes estão conectados um ao outro. Essa conexão pode ser unidirecional ou bidirecional, e pode ter multiplicidades para indicar quantos objetos de cada classe estão envolvidos na associação.
+<img src="https://www.macoratti.net/20/09/c_tipassoc12.jpg" alt="tipos associação entre as classes" width="500" height="300">
 
-## Tipos de Associação em UML:
+> fonte: https://www.macoratti.net
 
-1. **Associação Simples**: É o tipo mais básico de associação e indica que há uma ligação entre os objetos das classes envolvidas. Pode ser unidirecional ou bidirecional.
+<img src="https://www.macoratti.net/net_uml5.gif" alt="Descrição da imagem" width="207" height="232">
 
-2. **Associação Unidirecional**: Neste tipo de associação, a relação entre as classes é de uma direção apenas. Uma classe é conhecida, mas a outra não tem conhecimento dela.
+> fonte: https://www.macoratti.net
 
-3. **Associação Bidirecional**: Aqui, a relação é de ambas as direções. Ambas as classes envolvidas têm conhecimento uma da outra.
+- Associação: Representa uma ligação entre classes, indicando que um objeto de uma classe está relacionado a um objeto de outra classe.
 
-4. **Associação Multiplicativa**: Permite indicar quantos objetos de cada classe estão envolvidos na associação. Por exemplo, uma associação 1 para * significa que uma classe está associada a muitos objetos da outra classe, enquanto uma associação * para * significa que muitos objetos de uma classe estão associados a muitos objetos da outra classe.
+- Agregação: É um tipo especial de associação que representa um relacionamento "todo-parte", onde uma classe é composta por outras classes.
 
-5. **Associação com Papéis**: É usada para especificar os papéis desempenhados por cada classe na associação. Por exemplo, em uma associação entre as classes "Aluno" e "Turma", o Aluno pode desempenhar o papel de "Estudante" e a Turma pode desempenhar o papel de "Classe".
+- Composição: É um tipo mais forte de agregação, indicando que as partes não podem existir independentemente do todo.
 
-## Exemplo de Associação em UML:
+- Herança: Representa a relação entre uma classe base (superclasse) e suas subclasses (subclasses).
 
-Considere um sistema de biblioteca com as classes "Livro" e "Autor". Cada livro pode ser escrito por um ou mais autores, enquanto um autor pode escrever zero ou mais livros. Essa relação é uma associação bidirecional, pois os livros têm conhecimento dos autores e vice-versa.
+- Dependência: Indica que uma classe depende de outra classe de alguma forma.
 
-#### Diagramas de Sequência
+- Realização: Indica que uma classe implementa uma interface.
 
-Os diagramas de sequência são usados para visualizar a interação entre os objetos em um sistema ao longo do tempo, mostrando as mensagens trocadas entre os objetos em uma determinada sequência. Eles são úteis para modelar o comportamento dinâmico de um sistema. Aqui está um exemplo de um diagrama de sequência para o processo de empréstimo de um livro em uma biblioteca:
+##### Multiplicidade
 
-![Diagrama de Sequência](link_para_imagem_diagrama_de_sequencia)
+![Indicadores de multiplicidades](image.png)
 
-Neste diagrama, as linhas verticais representam os objetos envolvidos na interação, e as setas horizontais representam as mensagens trocadas entre esses objetos ao longo do tempo. Por exemplo, a sequência de mensagens entre o objeto `Usuario` e o objeto `Biblioteca` mostra o processo de solicitação, verificação de disponibilidade e empréstimo de um livro.
+- Multiplicidade 1: Indica que existe exatamente um objeto relacionado. Pode ser representado por "1" ou "1..1".
 
-#### Diagramas de Caso de Uso
+- Multiplicidade zero ou mais: Indica que pode haver zero ou mais objetos relacionados. Pode ser representado por "0.." ou "".
 
-Os diagramas de caso de uso são usados para modelar os requisitos funcionais de um sistema, mostrando os diferentes casos de uso ou funcionalidades que o sistema deve oferecer aos seus usuários. Eles ajudam a identificar e visualizar os principais recursos e interações do sistema. Aqui está um exemplo de um diagrama de caso de uso para um sistema de gerenciamento de biblioteca:
+- Multiplicidade um ou mais: Indica que deve haver pelo menos um objeto relacionado. Pode ser representado por "1..*" ou "+".
 
-![Diagrama de Caso de Uso](link_para_imagem_diagrama_de_caso_de_uso)
+- Multiplicidade um para um: Indica que exatamente um objeto da classe A está relacionado a exatamente um objeto da classe B. Pode ser representado por "1..1" em ambos os lados.
 
-Neste diagrama, os elipses representam os casos de uso do sistema, que descrevem as interações entre os usuários e o sistema. As setas representam as relações de inclusão e extensão entre os casos de uso, indicando que um caso de uso pode incluir ou estender outro caso de uso.
+- Multiplicidade zero para um: Indica que pode haver zero ou um objeto relacionado. Pode ser representado por "0..1".
 
-#### Benefícios da UML em Java
+- Multiplicidade intervalar: Indica um intervalo específico de objetos relacionados. Por exemplo, "2..5" indica que pode haver de 2 a 5 objetos relacionados.
 
-- **Comunicação Eficiente**: A UML fornece uma linguagem comum para comunicar o design e os requisitos de um sistema entre membros da equipe e partes interessadas.
-  
-- **Visualização do Design**: Os diagramas UML oferecem uma maneira visual e intuitiva de entender a estrutura, comportamento e interações de um sistema de software.
+##### Visibilidade em Diagramas de Classes UML
 
-- **Documentação do Sistema**: Os diagramas UML podem ser usados para documentar o design e a arquitetura de um sistema, fornecendo uma referência útil para desenvolvedores e mantenedores do sistema.
+Em diagramas de classes UML, a visibilidade dos atributos e métodos de uma classe é indicada por símbolos especiais que precedem os nomes dos atributos e métodos. Existem três níveis de visibilidade comumente usados:
 
-- **Identificação de Problemas**: A modelagem UML pode ajudar a identificar problemas de design e inconsistências antes da implementação do sistema, economizando tempo e recursos no longo prazo.
+1. **Public (+):** Atributos ou métodos marcados como públicos podem ser acessados de qualquer lugar, tanto dentro da classe quanto fora dela.
 
-- **Planejamento e Gerenciamento de Projetos**: Os diagramas UML podem ser usados para planejar e gerenciar projetos de desenvolvimento de software, ajudando a definir requisitos, estimar esforço e monitorar o progresso do desenvolvimento.
+2. **Protected (#):** Atributos ou métodos marcados como protegidos são acessíveis apenas dentro da própria classe e por subclasses (herança).
 
-Em resumo, a UML é uma ferramenta poderosa para modelar sistemas de software em Java e outras linguagens de programação, ajudando a melhorar a comunicação, compreensão e qualidade do design de software.
+3. **Private (-):** Atributos ou métodos marcados como privados são acessíveis apenas dentro da própria classe, não podendo ser acessados por outras classes, nem mesmo por subclasses.
+
+Exemplo:
+
+![alt text](image-1.png)
+
+> Artigo - [O que é um diagrama de classe UML?](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-de-classe-uml#discoveryTop)
+
+> Vídeo - [Tutorial de Diagramas de Classes UML](https://www.youtube.com/watch?v=rDidOn6KN9k)
+
+### Pilares da Programação Orientada a Objetos
+
+1. Encapsulamento:
+
+O encapsulamento é o conceito de agrupar os dados (atributos) e os métodos que operam nesses dados em uma única unidade, chamada de classe. Isso ajuda a ocultar os detalhes internos de implementação de uma classe e a proteger os dados de acessos não autorizados. Em Java, isso é alcançado usando modificadores de acesso (public, private, protected).
+
+Exemplo em Java:
+```Java
+public class ContaBancaria {
+    private double saldo; // Atributo encapsulado
+
+    public void depositar(double valor) {
+        saldo += valor;
+    }
+
+    public void sacar(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente");
+        }
+    }
+
+    public double getSaldo() { // Método acessor para obter o saldo
+        return saldo;
+    }
+}
+```
+
+2. Herança:
+
+A herança é um mecanismo em que uma classe (subclasse) pode herdar os atributos e métodos de outra classe (superclasse). Isso promove a reutilização de código e estabelece uma relação "é um" entre as classes.
+
+Exemplo em Java:
+
+```java
+public class Animal {
+    public void fazerSom() {
+        System.out.println("Fazendo algum som...");
+    }
+}
+
+public class Cachorro extends Animal {
+    public void latir() {
+        System.out.println("Au au!");
+    }
+}
+```
+
+3. Abstração:
+
+Abstração é o conceito de modelar apenas os aspectos relevantes de um objeto do mundo real, ignorando os detalhes irrelevantes. Em Java, isso é alcançado usando classes abstratas e interfaces.
+
+Exemplo em Java (classe abstrata):
+```java
+public abstract class Forma {
+    public abstract double calcularArea();
+}
+
+public class Retangulo extends Forma {
+    private double largura;
+    private double altura;
+
+    public double calcularArea() {
+        return largura * altura;
+    }
+}
+```
+
+4. Polimorfismo:
+
+Polimorfismo permite que objetos de diferentes classes sejam tratados de maneira uniforme. Em Java, isso pode ser alcançado através de sobrecarga de método (métodos com o mesmo nome em uma classe, mas com diferentes parâmetros) e sobrescrita de método (implementação de um método em uma subclasse que já existe na superclasse).
+
+Exemplo em Java:
+```Java
+public class Animal {
+    public void fazerSom() {
+        System.out.println("Fazendo algum som...");
+    }
+}
+
+public class Cachorro extends Animal {
+    public void fazerSom() {
+        System.out.println("Au au!");
+    }
+}
+
+public class Gato extends Animal {
+    public void fazerSom() {
+        System.out.println("Miau!");
+    }
+}
+```
+
+5. Interface:
+
+Interface define um contrato de métodos que uma classe deve implementar. Em Java, uma classe pode implementar múltiplas interfaces, permitindo alcançar o polimorfismo.
+
+Exemplo em Java:
+```Java
+public interface Animal {
+    void fazerSom();
+}
+
+public class Cachorro implements Animal {
+    public void fazerSom() {
+        System.out.println("Au au!");
+    }
+}
+
+public class Gato implements Animal {
+    public void fazerSom() {
+        System.out.println("Miau!");
+    }
+}
+```
+
+Esses são os pilares da Programação Orientada a Objetos em Java, cada um desempenhando um papel fundamental na criação de software robusto, modular e extensível.
