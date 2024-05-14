@@ -10,6 +10,7 @@
 
 - Linguagem de Alto Nível:
   - São linguagens que são mais próximas da linguagem humana e menos dependentes da arquitetura específica do hardware.
+  - 
   - Permitem que os programadores expressem algoritmos e lógica de programação de forma mais clara e concisa.
   - Exemplos incluem Java, Python, C++, entre outras.
   - São mais fáceis de aprender e usar em comparação com as linguagens de baixo nível, mas podem ser menos eficientes em termos de desempenho em comparação com o código escrito em linguagens de baixo nível.
